@@ -73,7 +73,7 @@ product_destroy_view = ProductDestroyAPIView.as_view()
 
 class ProductMixinView(
     mixins.CreateModelMixin,
-    mixins.ListModelMixin,
+    mixins.ListModelMixin, 
     mixins.RetrieveModelMixin,
     generics.GenericAPIView
     ):
