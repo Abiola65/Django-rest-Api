@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'algoliasearch_django',
     'rest_framework',
     'rest_framework.authtoken',
     'api',
@@ -136,4 +137,10 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PAGINATION_CLASS' : 'rest_framework.pagination.LimitOffsetPagination',
     "PAGE_SIZE" : 10
+}
+
+ALGOLIA = {
+    'APPLICATION_ID': 'XG44N1YX14',
+    'API_KEY': 'ca7c2679cacbb0fa8501c000c124af5f',
+    'INDEX_PREFIXES': 'abiola'
 }
