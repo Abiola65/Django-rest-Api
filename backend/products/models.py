@@ -6,7 +6,7 @@ from django.db.models import Q
 
 User = settings.AUTH_USER_MODEL
 
-TAGS_MODEL_VALUES = ['electronics', 'cars', 'boats', 'movies', 'cameras',]
+TAGS_MODEL_VALUES = ['electronics', 'cars', 'boats', 'movies', 'cameras']
 
 class ProductQuerySet(models.QuerySet):
     def is_public(self):
