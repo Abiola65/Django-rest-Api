@@ -28,4 +28,4 @@ def perform_search(query, **kwargs):
         params['facetFilters'] = index_filters
         print(params)
     results = index.search(query, params)
-    return results
+    return results 
