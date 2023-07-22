@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'algoliasearch_django',
+    'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_simplejwt', 
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -59,6 +61,13 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'drfhome.urls'
+CORS_URLS_REGEX = r'^/api/.*'
+CORS_ALLOWED_ORIGINS = []
+if DEBUG:
+    CORS_ALLOWED_ORIGINS += [
+        'http://localhost:8111',
+        'https://localhost:8111',
+    ]
 
 TEMPLATES = [
     {
@@ -80,7 +89,7 @@ WSGI_APPLICATION = 'drfhome.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases  
 
 DATABASES = {
     'default': {
@@ -118,7 +127,7 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = True  
 
 
 # Static files (CSS, JavaScript, Images)
