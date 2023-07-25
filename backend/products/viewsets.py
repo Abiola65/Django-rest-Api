@@ -18,9 +18,9 @@ class ProductViewSet(viewsets.ModelViewSet):
     lookup_field = 'pk'
 
 class ProductGenericViewSet(
-    mixins.ListModelMixin,
-    mixins.RetrieveModelMixin,
-    viewsets.GenericViewSet):
+        mixins.ListModelMixin,
+        mixins.RetrieveModelMixin,
+        viewsets.GenericViewSet):
     """
     get -> list -> QuerySet
     get -> retrieve -> Product Instance Detail View

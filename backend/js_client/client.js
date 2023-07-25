@@ -145,5 +145,51 @@ function getProductList(){
 
     })
 }
-validateJWTToken
+validateJWTToken()
 // getProductList()
+
+
+const searchClient = algoliasearch('XG44N1YX14', 'bf7f9415f5bd1a18585becfb4bfca286')
+
+const search = instantsearch({
+  indexName: 'Product',
+  searchClient,
+});
+search.addWidgets([
+    instantsearch.widgets.searchBox({
+      container: '#searchbox',
+    }),
+    
+      instantsearch.widgets.clearRefinements({
+      container: "#clear-refinements",
+      }),
+  
+    instantsearch.widgets.refinementList({
+      container: "#user-list",
+      attribute: "user"
+    }),
+  
+    instantsearch.widgets.refinementList({
+      container: "#public-list",
+      attribute: "public"
+    }),
+  
+  
+    instantsearch.widgets.hits({
+      container: '#hits',
+      templates: {
+          item:`
+          <div>
+          
+          <div>{{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}</div>
+          <div>{{#helpers.highlight}}{ "attribute": "body" }{{/helpers.highlight}}</div>
+          
+          <p>{{ user }}</p><p>\${{ price }}
+          
+          </div>`,
+      }
+    })
+  ]);
+  
+  search.start();
+  
